@@ -12,7 +12,7 @@ const Header = () => {
   const navItems = [
     {
       title: "Guitars",
-      items: ["Electric Guitars", "Acoustic Guitars", "Bass Guitars", "Guitar Accessories"]
+      items: ["Electric Guitars", "Acoustic Guitars", "Bass Guitars", "Accessories"]
     },
     {
       title: "Amplifiers", 
