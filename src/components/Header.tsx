@@ -57,9 +57,6 @@ const Header = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             ))}
-            
-            <a href="#" className="text-white hover:text-orange-400 transition-colors">About</a>
-            <a href="#" className="text-white hover:text-orange-400 transition-colors">Contact</a>
           </nav>
 
           <div className="flex items-center space-x-4">
