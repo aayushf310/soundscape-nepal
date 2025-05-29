@@ -1,9 +1,33 @@
 
-import { Search, ShoppingCart, User, Music } from "lucide-react";
+import { Search, ShoppingCart, User, Music, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
+  const navItems = [
+    {
+      title: "Guitars",
+      items: ["Electric Guitars", "Acoustic Guitars", "Bass Guitars", "Guitar Accessories"]
+    },
+    {
+      title: "Amplifiers", 
+      items: ["Guitar Amplifiers", "Bass Amplifiers", "Keyboard Amplifiers", "PA Systems"]
+    },
+    {
+      title: "Keyboards",
+      items: ["Digital Pianos", "Synthesizers", "MIDI Controllers", "Keyboard Stands"]
+    },
+    {
+      title: "Strings",
+      items: ["Guitar Strings", "Bass Strings", "Violin Strings", "String Care"]
+    }
+  ];
+
   return (
     <header className="bg-white/10 backdrop-blur-md border-b border-white/20 sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">
@@ -17,7 +41,23 @@ const Header = () => {
           
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#" className="text-white hover:text-orange-400 transition-colors">Home</a>
-            <a href="#" className="text-white hover:text-orange-400 transition-colors">Instruments</a>
+            
+            {navItems.map((category) => (
+              <DropdownMenu key={category.title}>
+                <DropdownMenuTrigger className="text-white hover:text-orange-400 transition-colors flex items-center space-x-1 bg-transparent border-none outline-none">
+                  <span>{category.title}</span>
+                  <ChevronDown className="h-4 w-4" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-white/95 backdrop-blur-md border border-white/20 z-50">
+                  {category.items.map((item) => (
+                    <DropdownMenuItem key={item} className="text-gray-800 hover:bg-orange-100 hover:text-orange-600 cursor-pointer">
+                      {item}
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ))}
+            
             <a href="#" className="text-white hover:text-orange-400 transition-colors">About</a>
             <a href="#" className="text-white hover:text-orange-400 transition-colors">Contact</a>
           </nav>

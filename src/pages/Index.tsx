@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import ShopByCategory from "@/components/ShopByCategory";
 import FilterSection from "@/components/FilterSection";
 import ProductGrid from "@/components/ProductGrid";
 import { instrumentsData } from "@/data/instruments";
@@ -46,6 +47,7 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
       <Header />
       <Hero />
+      <ShopByCategory />
       <div className="container mx-auto px-4 py-12">
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="lg:w-1/4">
