@@ -9,19 +9,22 @@ const ShopByCategory = () => {
       title: "Best Sellers",
       description: "Most popular instruments among musicians",
       icon: Sparkles,
-      color: "from-yellow-500 to-orange-500"
+      color: "from-yellow-500 to-orange-500",
+      image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=500"
     },
     {
       title: "New Arrivals",
       description: "Latest instruments just added to our collection",
       icon: Package,
-      color: "from-blue-500 to-purple-500"
+      color: "from-blue-500 to-purple-500",
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=500"
     },
     {
       title: "Clearance",
       description: "Great deals on quality instruments",
       icon: Tag,
-      color: "from-green-500 to-teal-500"
+      color: "from-green-500 to-teal-500",
+      image: "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=500"
     }
   ];
 
@@ -41,11 +44,19 @@ const ShopByCategory = () => {
           {categories.map((category) => {
             const IconComponent = category.icon;
             return (
-              <Card key={category.title} className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-300 group cursor-pointer">
-                <CardContent className="p-8 text-center">
-                  <div className={`w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r ${category.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                    <IconComponent className="h-8 w-8 text-white" />
+              <Card key={category.title} className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-300 group cursor-pointer overflow-hidden">
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={category.image}
+                    alt={category.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-black/40"></div>
+                  <div className={`absolute top-4 right-4 w-12 h-12 rounded-full bg-gradient-to-r ${category.color} flex items-center justify-center`}>
+                    <IconComponent className="h-6 w-6 text-white" />
                   </div>
+                </div>
+                <CardContent className="p-8 text-center">
                   <h3 className="text-2xl font-bold text-white mb-3">
                     {category.title}
                   </h3>

@@ -1,9 +1,11 @@
+
 import { useState } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ShopByCategory from "@/components/ShopByCategory";
 import FilterSection from "@/components/FilterSection";
 import ProductGrid from "@/components/ProductGrid";
+import Footer from "@/components/Footer";
 import { instrumentsData } from "@/data/instruments";
 
 export interface Instrument {
@@ -62,6 +64,7 @@ const Index = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
