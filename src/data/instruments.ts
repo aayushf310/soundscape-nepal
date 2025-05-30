@@ -11,6 +11,7 @@ export const instrumentsData: Instrument[] = [
     category: "Guitar",
     description: "Professional acoustic guitar with solid spruce top and rosewood back/sides. Perfect for recording and live performances.",
     available: true,
+    relatedCategories: ["Strings", "Amplifiers", "Accessories"],
   },
   {
     id: 2,
@@ -21,6 +22,7 @@ export const instrumentsData: Instrument[] = [
     category: "Drums",
     description: "Complete electronic drum kit with mesh heads and premium sounds. Includes all necessary hardware and pedals.",
     available: true,
+    relatedCategories: ["Amplifiers", "Accessories"],
   },
   {
     id: 3,
@@ -31,6 +33,7 @@ export const instrumentsData: Instrument[] = [
     category: "Guitar",
     description: "Classic electric guitar with versatile pickup configuration. Perfect for rock, blues, and jazz performances.",
     available: true,
+    relatedCategories: ["Strings", "Amplifiers", "Accessories"],
   },
   {
     id: 4,
@@ -41,6 +44,7 @@ export const instrumentsData: Instrument[] = [
     category: "Woodwind",
     description: "Student-level alto saxophone with excellent intonation and projection. Includes case and mouthpiece.",
     available: false,
+    relatedCategories: ["Accessories"],
   },
   {
     id: 5,
@@ -51,6 +55,7 @@ export const instrumentsData: Instrument[] = [
     category: "Piano",
     description: "88-key digital piano with weighted keys and premium grand piano sounds. Perfect for home practice.",
     available: true,
+    relatedCategories: ["Keyboards", "Amplifiers", "Accessories"],
   },
   {
     id: 6,
@@ -61,6 +66,7 @@ export const instrumentsData: Instrument[] = [
     category: "Bass",
     description: "4-string electric bass with active electronics and sleek design. Great for modern musical styles.",
     available: true,
+    relatedCategories: ["Strings", "Amplifiers", "Accessories"],
   },
   {
     id: 7,
@@ -71,6 +77,7 @@ export const instrumentsData: Instrument[] = [
     category: "Drums",
     description: "Complete 5-piece acoustic drum kit with cymbals and hardware. Professional quality at an affordable price.",
     available: true,
+    relatedCategories: ["Amplifiers", "Accessories"],
   },
   {
     id: 8,
@@ -81,6 +88,7 @@ export const instrumentsData: Instrument[] = [
     category: "Guitar",
     description: "Iconic electric guitar with humbucker pickups and mahogany construction. The classic rock sound.",
     available: false,
+    relatedCategories: ["Strings", "Amplifiers", "Accessories"],
   },
   {
     id: 9,
@@ -91,6 +99,7 @@ export const instrumentsData: Instrument[] = [
     category: "Drums",
     description: "Complete cymbal set including hi-hats, crash, and ride cymbals. Perfect for beginning drummers.",
     available: true,
+    relatedCategories: ["Accessories"],
   },
   {
     id: 10,
@@ -101,6 +110,7 @@ export const instrumentsData: Instrument[] = [
     category: "Brass",
     description: "Student trumpet with excellent build quality and sound projection. Includes case and mouthpiece.",
     available: true,
+    relatedCategories: ["Accessories"],
   },
   {
     id: 11,
@@ -111,6 +121,7 @@ export const instrumentsData: Instrument[] = [
     category: "Synthesizer",
     description: "Analog synthesizer with digital effects and sequencer. Perfect for electronic music production.",
     available: true,
+    relatedCategories: ["Keyboards", "Amplifiers", "Accessories"],
   },
   {
     id: 12,
@@ -121,5 +132,6 @@ export const instrumentsData: Instrument[] = [
     category: "Guitar",
     description: "Premium acoustic guitar with sitka spruce top and Indian rosewood back. Professional recording quality.",
     available: true,
+    relatedCategories: ["Strings", "Amplifiers", "Accessories"],
   },
 ];

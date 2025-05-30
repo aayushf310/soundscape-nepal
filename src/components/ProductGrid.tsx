@@ -2,7 +2,7 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Heart, Star } from "lucide-react";
+import { ShoppingCart, Heart, Star } from "lucide-react";
 import { Instrument } from "@/pages/Index";
 import { useToast } from "@/hooks/use-toast";
 
@@ -13,10 +13,10 @@ interface ProductGridProps {
 const ProductGrid = ({ instruments }: ProductGridProps) => {
   const { toast } = useToast();
 
-  const handleBooking = (instrument: Instrument) => {
+  const handleAddToCart = (instrument: Instrument) => {
     toast({
-      title: "Booking Initiated",
-      description: `Your booking request for ${instrument.name} has been submitted!`,
+      title: "Added to Cart",
+      description: `${instrument.name} has been added to your cart!`,
     });
   };
 
@@ -90,11 +90,11 @@ const ProductGrid = ({ instruments }: ProductGridProps) => {
             <CardFooter className="p-4 pt-0">
               <Button 
                 className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white"
-                onClick={() => handleBooking(instrument)}
+                onClick={() => handleAddToCart(instrument)}
                 disabled={!instrument.available}
               >
-                <Calendar className="mr-2 h-4 w-4" />
-                {instrument.available ? 'Book Now' : 'Unavailable'}
+                <ShoppingCart className="mr-2 h-4 w-4" />
+                {instrument.available ? 'Add to Cart' : 'Out of Stock'}
               </Button>
             </CardFooter>
           </Card>

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -16,6 +15,7 @@ export interface Instrument {
   category: string;
   description: string;
   available: boolean;
+  relatedCategories?: string[];
 }
 
 export interface Filters {
