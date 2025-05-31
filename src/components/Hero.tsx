@@ -29,7 +29,7 @@ const Hero = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="border-white/30 text-white hover:bg-white/10 px-12 py-4 rounded-full text-lg"
+              className="border-orange-400/50 text-orange-400 hover:bg-orange-400/10 hover:border-orange-400 px-12 py-4 rounded-full text-lg transition-all duration-300"
             >
               <Play className="mr-2 h-6 w-6" />
               Watch Demo

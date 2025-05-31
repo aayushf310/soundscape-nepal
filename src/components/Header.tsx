@@ -3,11 +3,13 @@ import { Search, ShoppingCart, User, Music, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
 const Header = () => {
   const navItems = [
@@ -54,21 +56,29 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#" className="text-white hover:text-orange-400 transition-colors">Home</a>
             
-            {navItems.map((category) => (
-              <DropdownMenu key={category.title}>
-                <DropdownMenuTrigger className="text-white hover:text-orange-400 transition-colors flex items-center space-x-1 bg-transparent border-none outline-none group">
-                  <span>{category.title}</span>
-                  <ChevronDown className="h-4 w-4 group-hover:rotate-180 transition-transform duration-300" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-white/95 backdrop-blur-md border border-white/20 z-50 shadow-xl rounded-lg">
-                  {category.items.map((item) => (
-                    <DropdownMenuItem key={item} className="text-gray-800 hover:bg-gradient-to-r hover:from-orange-100 hover:to-pink-100 hover:text-orange-600 cursor-pointer transition-all duration-300 rounded-md mx-1">
-                      {item}
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ))}
+            <NavigationMenu>
+              <NavigationMenuList className="flex space-x-8">
+                {navItems.map((category) => (
+                  <NavigationMenuItem key={category.title}>
+                    <NavigationMenuTrigger className="text-white hover:text-orange-400 transition-colors bg-transparent border-none outline-none data-[state=open]:text-orange-400">
+                      {category.title}
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent className="min-w-[200px] bg-white/95 backdrop-blur-md border border-white/20 z-50 shadow-xl rounded-lg p-2">
+                      <div className="grid gap-1">
+                        {category.items.map((item) => (
+                          <NavigationMenuLink
+                            key={item}
+                            className="block px-3 py-2 text-gray-800 hover:bg-gradient-to-r hover:from-orange-100 hover:to-pink-100 hover:text-orange-600 cursor-pointer transition-all duration-300 rounded-md"
+                          >
+                            {item}
+                          </NavigationMenuLink>
+                        ))}
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                ))}
+              </NavigationMenuList>
+            </NavigationMenu>
           </nav>
 
           <div className="flex items-center space-x-4">

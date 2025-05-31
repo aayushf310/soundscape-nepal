@@ -70,7 +70,7 @@ const MoreWaysToSave = () => {
                 </p>
                 <Button 
                   variant="outline" 
-                  className="bg-white/20 border-white/30 text-white hover:bg-white hover:text-gray-900 transition-all duration-300 rounded-full px-6"
+                  className="bg-orange-500/20 border-orange-400/50 text-orange-300 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-300 rounded-full px-6"
                 >
                   {deal.buttonText}
                 </Button>
