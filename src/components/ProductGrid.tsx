@@ -1,10 +1,13 @@
 
+import { useState } from "react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ShoppingCart, Heart, Star } from "lucide-react";
+import { ShoppingCart, Heart, Star, Eye } from "lucide-react";
 import { Instrument } from "@/pages/Index";
 import { useToast } from "@/hooks/use-toast";
+import CartDialog from "./CartDialog";
+import RelatedProductsDialog from "./RelatedProductsDialog";
 
 interface ProductGridProps {
   instruments: Instrument[];
@@ -12,12 +15,22 @@ interface ProductGridProps {
 
 const ProductGrid = ({ instruments }: ProductGridProps) => {
   const { toast } = useToast();
+  const [cartDialogOpen, setCartDialogOpen] = useState(false);
+  const [relatedDialogOpen, setRelatedDialogOpen] = useState(false);
+  const [selectedInstrument, setSelectedInstrument] = useState<Instrument | null>(null);
 
   const handleAddToCart = (instrument: Instrument) => {
+    setSelectedInstrument(instrument);
+    setCartDialogOpen(true);
     toast({
       title: "Added to Cart",
       description: `${instrument.name} has been added to your cart!`,
     });
+  };
+
+  const handleViewRelated = (instrument: Instrument) => {
+    setSelectedInstrument(instrument);
+    setRelatedDialogOpen(true);
   };
 
   if (instruments.length === 0) {
@@ -41,7 +54,7 @@ const ProductGrid = ({ instruments }: ProductGridProps) => {
         {instruments.map((instrument) => (
           <Card 
             key={instrument.id} 
-            className="bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/15 transition-all duration-300 group overflow-hidden"
+            className="bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/15 transition-all duration-300 group overflow-hidden transform hover:scale-105 shadow-xl"
           >
             <div className="relative overflow-hidden">
               <img
@@ -49,7 +62,15 @@ const ProductGrid = ({ instruments }: ProductGridProps) => {
                 alt={instrument.name}
                 className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
               />
-              <div className="absolute top-2 right-2">
+              <div className="absolute top-2 right-2 flex gap-2">
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="bg-black/20 hover:bg-black/40 text-white"
+                  onClick={() => handleViewRelated(instrument)}
+                >
+                  <Eye className="h-4 w-4" />
+                </Button>
                 <Button variant="ghost" size="icon" className="bg-black/20 hover:bg-black/40 text-white">
                   <Heart className="h-4 w-4" />
                 </Button>
@@ -75,6 +96,9 @@ const ProductGrid = ({ instruments }: ProductGridProps) => {
                   <p className="text-gray-300 text-sm">{instrument.brand}</p>
                   {instrument.series && (
                     <p className="text-orange-300 text-xs">{instrument.series} Series</p>
+                  )}
+                  {instrument.handedness && instrument.handedness !== 'both' && (
+                    <p className="text-blue-300 text-xs capitalize">{instrument.handedness} Handed</p>
                   )}
                 </div>
                 <Badge variant="secondary" className="bg-orange-500/20 text-orange-300">
@@ -106,7 +130,7 @@ const ProductGrid = ({ instruments }: ProductGridProps) => {
             
             <CardFooter className="p-4 pt-0">
               <Button 
-                className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white"
+                className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white rounded-lg"
                 onClick={() => handleAddToCart(instrument)}
                 disabled={!instrument.available}
               >
@@ -117,6 +141,19 @@ const ProductGrid = ({ instruments }: ProductGridProps) => {
           </Card>
         ))}
       </div>
+      
+      <CartDialog 
+        isOpen={cartDialogOpen}
+        onClose={() => setCartDialogOpen(false)}
+        instrument={selectedInstrument}
+      />
+      
+      <RelatedProductsDialog 
+        isOpen={relatedDialogOpen}
+        onClose={() => setRelatedDialogOpen(false)}
+        instrument={selectedInstrument}
+        onAddToCart={handleAddToCart}
+      />
     </div>
   );
 };

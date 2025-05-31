@@ -44,7 +44,7 @@ const ShopByCategory = () => {
           {categories.map((category) => {
             const IconComponent = category.icon;
             return (
-              <Card key={category.title} className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-300 group cursor-pointer overflow-hidden h-[400px]">
+              <Card key={category.title} className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-300 group cursor-pointer overflow-hidden transform hover:scale-105 shadow-2xl">
                 <div className="relative h-64 overflow-hidden">
                   <img
                     src={category.image}
@@ -56,16 +56,17 @@ const ShopByCategory = () => {
                     <IconComponent className="h-6 w-6 text-white" />
                   </div>
                 </div>
-                <CardContent className="p-8 text-center flex flex-col justify-center h-36">
-                  <h3 className="text-2xl font-bold text-white mb-3">
-                    {category.title}
-                  </h3>
-                  <p className="text-gray-300 mb-6">
-                    {category.description}
-                  </p>
+                <CardContent className="p-6 flex flex-col justify-between h-48">
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-2">
+                      {category.title}
+                    </h3>
+                    <p className="text-gray-300 mb-4 text-sm">
+                      {category.description}
+                    </p>
+                  </div>
                   <Button 
-                    variant="outline" 
-                    className="border-orange-400/50 text-orange-400 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-300"
+                    className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white border-none rounded-lg font-semibold py-2"
                   >
                     Browse Collection
                   </Button>

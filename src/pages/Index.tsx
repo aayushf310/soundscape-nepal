@@ -8,6 +8,7 @@ import FilterSection from "@/components/FilterSection";
 import ProductGrid from "@/components/ProductGrid";
 import Footer from "@/components/Footer";
 import MoreWaysToSave from "@/components/MoreWaysToSave";
+import ScrollToTop from "@/components/ScrollToTop";
 import { instrumentsData } from "@/data/instruments";
 
 export interface Instrument {
@@ -61,7 +62,7 @@ const Index = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 scroll-smooth">
       <Header />
       <Hero />
       <div className="container mx-auto px-4 py-8">
@@ -84,6 +85,7 @@ const Index = () => {
         </div>
       </div>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };

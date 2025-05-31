@@ -47,8 +47,8 @@ const MoreWaysToSave = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {deals.map((deal) => (
-            <Card key={deal.title} className={`bg-gradient-to-br ${deal.color} border-none overflow-hidden group cursor-pointer transform hover:scale-105 transition-all duration-300 shadow-2xl h-[450px]`}>
-              <div className="relative h-72 overflow-hidden">
+            <Card key={deal.title} className={`bg-gradient-to-br ${deal.color} border-none overflow-hidden group cursor-pointer transform hover:scale-105 transition-all duration-300 shadow-2xl`}>
+              <div className="relative h-64 overflow-hidden">
                 <img
                   src={deal.image}
                   alt={deal.heading}
@@ -61,16 +61,17 @@ const MoreWaysToSave = () => {
                   </span>
                 </div>
               </div>
-              <CardContent className="p-8 flex flex-col justify-center h-44">
-                <h3 className={`text-2xl font-bold ${deal.textColor} mb-3 leading-tight`}>
-                  {deal.heading}
-                </h3>
-                <p className={`${deal.textColor} opacity-90 mb-6`}>
-                  {deal.description}
-                </p>
+              <CardContent className="p-6 flex flex-col justify-between h-48">
+                <div>
+                  <h3 className={`text-xl font-bold ${deal.textColor} mb-2 leading-tight`}>
+                    {deal.heading}
+                  </h3>
+                  <p className={`${deal.textColor} opacity-90 mb-4 text-sm`}>
+                    {deal.description}
+                  </p>
+                </div>
                 <Button 
-                  variant="outline" 
-                  className="bg-orange-500/20 border-orange-400/50 text-orange-300 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-300 rounded-full px-6"
+                  className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white border-none rounded-lg font-semibold py-2"
                 >
                   {deal.buttonText}
                 </Button>
