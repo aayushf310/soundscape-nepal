@@ -65,7 +65,7 @@ const ShopByCategory = () => {
                   </p>
                   <Button 
                     variant="outline" 
-                    className="border-white/30 text-white hover:bg-white/10 transition-all duration-300"
+                    className="border-orange-400/50 text-orange-400 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-300"
                   >
                     Browse Collection
                   </Button>

@@ -1,6 +1,8 @@
+
 import { useState } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import HeroCarousel from "@/components/HeroCarousel";
 import ShopByCategory from "@/components/ShopByCategory";
 import FilterSection from "@/components/FilterSection";
 import ProductGrid from "@/components/ProductGrid";
@@ -49,6 +51,9 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
       <Header />
       <Hero />
+      <div className="container mx-auto px-4 py-8">
+        <HeroCarousel />
+      </div>
       <ShopByCategory />
       <MoreWaysToSave />
       <div className="container mx-auto px-4 py-12">
