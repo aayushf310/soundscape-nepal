@@ -29,9 +29,9 @@ const ShopByCategory = () => {
   ];
 
   return (
-    <section className="py-16 px-4">
+    <section className="py-20 px-4">
       <div className="container mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-white mb-4">
             Shop by Category
           </h2>
@@ -44,8 +44,8 @@ const ShopByCategory = () => {
           {categories.map((category) => {
             const IconComponent = category.icon;
             return (
-              <Card key={category.title} className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-300 group cursor-pointer overflow-hidden">
-                <div className="relative h-48 overflow-hidden">
+              <Card key={category.title} className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-300 group cursor-pointer overflow-hidden h-[400px]">
+                <div className="relative h-64 overflow-hidden">
                   <img
                     src={category.image}
                     alt={category.title}
@@ -56,7 +56,7 @@ const ShopByCategory = () => {
                     <IconComponent className="h-6 w-6 text-white" />
                   </div>
                 </div>
-                <CardContent className="p-8 text-center">
+                <CardContent className="p-8 text-center flex flex-col justify-center h-36">
                   <h3 className="text-2xl font-bold text-white mb-3">
                     {category.title}
                   </h3>

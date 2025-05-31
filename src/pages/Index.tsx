@@ -15,11 +15,15 @@ export interface Instrument {
   name: string;
   brand: string;
   price: number;
+  originalPrice?: number;
+  discountPercentage?: number;
   image: string;
   category: string;
   description: string;
   available: boolean;
   relatedCategories?: string[];
+  handedness?: 'left' | 'right' | 'both';
+  series?: string;
 }
 
 export interface Filters {
@@ -27,6 +31,8 @@ export interface Filters {
   brands: string[];
   categories: string[];
   searchTerm: string;
+  handedness: string[];
+  series: string[];
 }
 
 const Index = () => {
@@ -35,6 +41,8 @@ const Index = () => {
     brands: [],
     categories: [],
     searchTerm: "",
+    handedness: [],
+    series: [],
   });
 
   const filteredInstruments = instrumentsData.filter((instrument) => {
@@ -43,8 +51,13 @@ const Index = () => {
     const matchesCategory = filters.categories.length === 0 || filters.categories.includes(instrument.category);
     const matchesSearch = instrument.name.toLowerCase().includes(filters.searchTerm.toLowerCase()) ||
                          instrument.brand.toLowerCase().includes(filters.searchTerm.toLowerCase());
+    const matchesHandedness = filters.handedness.length === 0 || 
+                             filters.handedness.includes(instrument.handedness || 'both') ||
+                             (instrument.handedness === 'both' && filters.handedness.length > 0);
+    const matchesSeries = filters.series.length === 0 || 
+                         (instrument.series && filters.series.includes(instrument.series));
     
-    return matchesPrice && matchesBrand && matchesCategory && matchesSearch;
+    return matchesPrice && matchesBrand && matchesCategory && matchesSearch && matchesHandedness && matchesSeries;
   });
 
   return (

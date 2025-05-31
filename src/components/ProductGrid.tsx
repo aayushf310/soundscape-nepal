@@ -54,6 +54,13 @@ const ProductGrid = ({ instruments }: ProductGridProps) => {
                   <Heart className="h-4 w-4" />
                 </Button>
               </div>
+              {instrument.discountPercentage && (
+                <div className="absolute top-2 left-2">
+                  <Badge className="bg-red-500 text-white font-bold">
+                    {instrument.discountPercentage}% OFF
+                  </Badge>
+                </div>
+              )}
               {!instrument.available && (
                 <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
                   <Badge variant="destructive">Out of Stock</Badge>
@@ -66,6 +73,9 @@ const ProductGrid = ({ instruments }: ProductGridProps) => {
                 <div>
                   <h4 className="font-semibold text-white text-lg">{instrument.name}</h4>
                   <p className="text-gray-300 text-sm">{instrument.brand}</p>
+                  {instrument.series && (
+                    <p className="text-orange-300 text-xs">{instrument.series} Series</p>
+                  )}
                 </div>
                 <Badge variant="secondary" className="bg-orange-500/20 text-orange-300">
                   {instrument.category}
@@ -81,9 +91,16 @@ const ProductGrid = ({ instruments }: ProductGridProps) => {
                   ))}
                   <span className="text-xs text-gray-400 ml-1">(4.8)</span>
                 </div>
-                <span className="text-lg font-bold text-orange-400">
-                  NPR {instrument.price.toLocaleString()}
-                </span>
+                <div className="text-right">
+                  {instrument.originalPrice && (
+                    <span className="text-sm text-gray-400 line-through block">
+                      NPR {instrument.originalPrice.toLocaleString()}
+                    </span>
+                  )}
+                  <span className="text-lg font-bold text-orange-400">
+                    NPR {instrument.price.toLocaleString()}
+                  </span>
+                </div>
               </div>
             </CardContent>
             

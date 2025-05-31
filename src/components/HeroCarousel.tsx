@@ -50,7 +50,7 @@ const HeroCarousel = () => {
   };
 
   return (
-    <div className="relative w-full h-96 overflow-hidden rounded-xl mb-8">
+    <div className="relative w-full h-[500px] overflow-hidden rounded-xl mb-8 shadow-2xl">
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -64,10 +64,10 @@ const HeroCarousel = () => {
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-            <div className="text-center text-white">
-              <h3 className="text-4xl font-bold mb-4">{slide.title}</h3>
-              <p className="text-xl mb-6">{slide.description}</p>
-              <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full">
+            <div className="text-center text-white max-w-3xl px-8">
+              <h3 className="text-5xl font-bold mb-6">{slide.title}</h3>
+              <p className="text-xl mb-8 leading-relaxed">{slide.description}</p>
+              <Button className="bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-full text-lg">
                 Explore Collection
               </Button>
             </div>
@@ -79,7 +79,7 @@ const HeroCarousel = () => {
         onClick={prevSlide}
         variant="outline"
         size="icon"
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 border-white/30 text-white hover:bg-white/30 rounded-full"
+        className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-white/20 border-white/30 text-white hover:bg-white/30 rounded-full w-12 h-12"
       >
         <ChevronLeft className="h-6 w-6" />
       </Button>
@@ -88,17 +88,17 @@ const HeroCarousel = () => {
         onClick={nextSlide}
         variant="outline"
         size="icon"
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 border-white/30 text-white hover:bg-white/30 rounded-full"
+        className="absolute right-6 top-1/2 transform -translate-y-1/2 bg-white/20 border-white/30 text-white hover:bg-white/30 rounded-full w-12 h-12"
       >
         <ChevronRight className="h-6 w-6" />
       </Button>
 
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`w-4 h-4 rounded-full transition-all duration-300 ${
               index === currentSlide ? "bg-orange-500" : "bg-white/50"
             }`}
           />
