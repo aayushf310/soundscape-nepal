@@ -1,6 +1,7 @@
 
 import { Search, ShoppingCart, User, Music, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -39,18 +40,29 @@ const Header = () => {
             </h1>
           </div>
           
+          {/* Enhanced Search Bar */}
+          <div className="hidden md:flex items-center flex-1 max-w-md mx-8">
+            <div className="relative w-full">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <Input 
+                placeholder="Search in soundscape world"
+                className="w-full pl-10 pr-4 py-2 bg-white/20 border-white/30 text-white placeholder:text-gray-300 focus:bg-white/30 focus:border-orange-400 transition-all duration-300"
+              />
+            </div>
+          </div>
+          
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#" className="text-white hover:text-orange-400 transition-colors">Home</a>
             
             {navItems.map((category) => (
               <DropdownMenu key={category.title}>
-                <DropdownMenuTrigger className="text-white hover:text-orange-400 transition-colors flex items-center space-x-1 bg-transparent border-none outline-none">
+                <DropdownMenuTrigger className="text-white hover:text-orange-400 transition-colors flex items-center space-x-1 bg-transparent border-none outline-none group">
                   <span>{category.title}</span>
-                  <ChevronDown className="h-4 w-4" />
+                  <ChevronDown className="h-4 w-4 group-hover:rotate-180 transition-transform duration-300" />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-white/95 backdrop-blur-md border border-white/20 z-50">
+                <DropdownMenuContent className="bg-white/95 backdrop-blur-md border border-white/20 z-50 shadow-xl rounded-lg">
                   {category.items.map((item) => (
-                    <DropdownMenuItem key={item} className="text-gray-800 hover:bg-orange-100 hover:text-orange-600 cursor-pointer">
+                    <DropdownMenuItem key={item} className="text-gray-800 hover:bg-gradient-to-r hover:from-orange-100 hover:to-pink-100 hover:text-orange-600 cursor-pointer transition-all duration-300 rounded-md mx-1">
                       {item}
                     </DropdownMenuItem>
                   ))}
@@ -60,7 +72,7 @@ const Header = () => {
           </nav>
 
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="icon" className="text-white hover:text-orange-400">
+            <Button variant="ghost" size="icon" className="text-white hover:text-orange-400 md:hidden">
               <Search className="h-5 w-5" />
             </Button>
             <Button variant="ghost" size="icon" className="text-white hover:text-orange-400">

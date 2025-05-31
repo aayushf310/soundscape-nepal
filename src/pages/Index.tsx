@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -6,6 +5,7 @@ import ShopByCategory from "@/components/ShopByCategory";
 import FilterSection from "@/components/FilterSection";
 import ProductGrid from "@/components/ProductGrid";
 import Footer from "@/components/Footer";
+import MoreWaysToSave from "@/components/MoreWaysToSave";
 import { instrumentsData } from "@/data/instruments";
 
 export interface Instrument {
@@ -50,6 +50,7 @@ const Index = () => {
       <Header />
       <Hero />
       <ShopByCategory />
+      <MoreWaysToSave />
       <div className="container mx-auto px-4 py-12">
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="lg:w-1/4">
