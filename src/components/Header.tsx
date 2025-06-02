@@ -38,14 +38,18 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             <div className="relative">
               <img 
-                src="/lovable-uploads/eaded540-6796-477b-8e18-0e70829c7037.png" 
+                src="/lovable-uploads/02ae75b6-0417-4393-bce6-d81e04fa9971.png" 
                 alt="Soundscape Nepal Logo" 
-                className="h-8 w-auto opacity-90 mix-blend-screen filter brightness-110 contrast-110"
+                className="h-10 w-10 opacity-90 mix-blend-screen filter brightness-110 contrast-110"
               />
             </div>
-            <h1 className="text-xl font-light text-white font-serif tracking-wide italic">
-              Soundscape <span className="text-orange-400">Nepal</span>
-            </h1>
+            <div className="relative">
+              <img 
+                src="/lovable-uploads/02cf8a38-1e5d-4985-8301-6e867f9c5d1e.png" 
+                alt="Soundscape Nepal" 
+                className="h-6 w-auto opacity-85 mix-blend-screen filter brightness-125 contrast-110 invert"
+              />
+            </div>
           </div>
           
           {/* Enhanced Search Bar */}
