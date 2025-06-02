@@ -1,4 +1,3 @@
-
 import { Search, ShoppingCart, User, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -36,13 +35,15 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <img 
-              src="/lovable-uploads/02ae75b6-0417-4393-bce6-d81e04fa9971.png" 
-              alt="Soundscape Nepal Logo" 
-              className="h-12 w-12"
-            />
-            <h1 className="text-2xl font-bold text-white font-soundscape">
-              Soundscape <span className="text-orange-400">Nepal</span>
+            <div className="relative">
+              <img 
+                src="/lovable-uploads/02ae75b6-0417-4393-bce6-d81e04fa9971.png" 
+                alt="Soundscape Nepal Logo" 
+                className="h-12 w-12 opacity-90 mix-blend-screen filter brightness-110 contrast-110"
+              />
+            </div>
+            <h1 className="text-2xl font-bold text-white font-soundscape tracking-wider">
+              <span className="text-orange-400">SS</span>
             </h1>
           </div>
           
