@@ -18,6 +18,7 @@ const MoreWaysToSave = () => {
       heading: "Up to 50% Off Pedals, Amps & More",
       description: "Limited time offers on premium gear",
       buttonText: "Shop Now",
+      buttonColor: "from-purple-500 to-purple-700",
       color: "from-pink-500 to-red-500",
       image: "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=500",
       textColor: "text-white"
@@ -71,7 +72,7 @@ const MoreWaysToSave = () => {
                   </p>
                 </div>
                 <Button 
-                  className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white border-none rounded-lg font-semibold py-2"
+                  className={`w-full bg-gradient-to-r ${deal.buttonColor || 'from-orange-500 to-pink-500'} hover:from-orange-600 hover:to-pink-600 text-white border-none rounded-lg font-semibold py-2`}
                 >
                   {deal.buttonText}
                 </Button>

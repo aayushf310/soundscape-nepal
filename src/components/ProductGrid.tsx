@@ -3,11 +3,11 @@ import { useState } from "react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ShoppingCart, Heart, Star, Eye } from "lucide-react";
+import { ShoppingCart, Heart, Star, Eye, Package } from "lucide-react";
 import { Instrument } from "@/pages/Index";
 import { useToast } from "@/hooks/use-toast";
 import CartDialog from "./CartDialog";
-import RelatedProductsDialog from "./RelatedProductsDialog";
+import ProductDetailDialog from "./ProductDetailDialog";
 
 interface ProductGridProps {
   instruments: Instrument[];
@@ -16,7 +16,7 @@ interface ProductGridProps {
 const ProductGrid = ({ instruments }: ProductGridProps) => {
   const { toast } = useToast();
   const [cartDialogOpen, setCartDialogOpen] = useState(false);
-  const [relatedDialogOpen, setRelatedDialogOpen] = useState(false);
+  const [productDetailOpen, setProductDetailOpen] = useState(false);
   const [selectedInstrument, setSelectedInstrument] = useState<Instrument | null>(null);
 
   const handleAddToCart = (instrument: Instrument) => {
@@ -28,9 +28,9 @@ const ProductGrid = ({ instruments }: ProductGridProps) => {
     });
   };
 
-  const handleViewRelated = (instrument: Instrument) => {
+  const handleViewProduct = (instrument: Instrument) => {
     setSelectedInstrument(instrument);
-    setRelatedDialogOpen(true);
+    setProductDetailOpen(true);
   };
 
   if (instruments.length === 0) {
@@ -54,7 +54,7 @@ const ProductGrid = ({ instruments }: ProductGridProps) => {
         {instruments.map((instrument) => (
           <Card 
             key={instrument.id} 
-            className="bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/15 transition-all duration-300 group overflow-hidden transform hover:scale-105 shadow-xl"
+            className="bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/15 transition-all duration-300 group overflow-hidden transform hover:scale-105 shadow-xl flex flex-col h-full"
           >
             <div className="relative overflow-hidden">
               <img
@@ -67,7 +67,7 @@ const ProductGrid = ({ instruments }: ProductGridProps) => {
                   variant="ghost" 
                   size="icon" 
                   className="bg-black/20 hover:bg-black/40 text-white"
-                  onClick={() => handleViewRelated(instrument)}
+                  onClick={() => handleViewProduct(instrument)}
                 >
                   <Eye className="h-4 w-4" />
                 </Button>
@@ -87,12 +87,19 @@ const ProductGrid = ({ instruments }: ProductGridProps) => {
                   <Badge variant="destructive">Out of Stock</Badge>
                 </div>
               )}
+              {/* Stock indicator */}
+              <div className="absolute bottom-2 left-2">
+                <Badge className="bg-green-500/80 text-white text-xs flex items-center gap-1">
+                  <Package className="h-3 w-3" />
+                  {instrument.stock || 0} left
+                </Badge>
+              </div>
             </div>
             
-            <CardContent className="p-4">
+            <CardContent className="p-4 flex-grow">
               <div className="flex items-start justify-between mb-2">
-                <div>
-                  <h4 className="font-semibold text-white text-lg">{instrument.name}</h4>
+                <div className="flex-1">
+                  <h4 className="font-semibold text-white text-lg line-clamp-1">{instrument.name}</h4>
                   <p className="text-gray-300 text-sm">{instrument.brand}</p>
                   {instrument.series && (
                     <p className="text-orange-300 text-xs">{instrument.series} Series</p>
@@ -101,7 +108,7 @@ const ProductGrid = ({ instruments }: ProductGridProps) => {
                     <p className="text-blue-300 text-xs capitalize">{instrument.handedness} Handed</p>
                   )}
                 </div>
-                <Badge variant="secondary" className="bg-orange-500/20 text-orange-300">
+                <Badge variant="secondary" className="bg-orange-500/20 text-orange-300 shrink-0">
                   {instrument.category}
                 </Badge>
               </div>
@@ -128,14 +135,14 @@ const ProductGrid = ({ instruments }: ProductGridProps) => {
               </div>
             </CardContent>
             
-            <CardFooter className="p-4 pt-0">
+            <CardFooter className="p-4 pt-0 mt-auto">
               <Button 
                 className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white rounded-lg"
                 onClick={() => handleAddToCart(instrument)}
-                disabled={!instrument.available}
+                disabled={!instrument.available || !instrument.stock}
               >
                 <ShoppingCart className="mr-2 h-4 w-4" />
-                {instrument.available ? 'Add to Cart' : 'Out of Stock'}
+                {instrument.available && instrument.stock ? 'Add to Cart' : 'Out of Stock'}
               </Button>
             </CardFooter>
           </Card>
@@ -148,9 +155,9 @@ const ProductGrid = ({ instruments }: ProductGridProps) => {
         instrument={selectedInstrument}
       />
       
-      <RelatedProductsDialog 
-        isOpen={relatedDialogOpen}
-        onClose={() => setRelatedDialogOpen(false)}
+      <ProductDetailDialog 
+        isOpen={productDetailOpen}
+        onClose={() => setProductDetailOpen(false)}
         instrument={selectedInstrument}
         onAddToCart={handleAddToCart}
       />

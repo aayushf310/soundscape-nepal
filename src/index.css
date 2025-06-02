@@ -99,11 +99,43 @@
     animation: fadeIn 1s ease-in-out;
   }
 
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
   .line-clamp-2 {
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+  }
+
+  /* Custom scrollbar styles */
+  .scrollbar-aesthetic {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(249, 115, 22, 0.6) rgba(255, 255, 255, 0.1);
+  }
+
+  .scrollbar-aesthetic::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .scrollbar-aesthetic::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+  }
+
+  .scrollbar-aesthetic::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #f97316, #ec4899);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .scrollbar-aesthetic::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #ea580c, #db2777);
   }
 }
 

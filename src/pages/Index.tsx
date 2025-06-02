@@ -9,6 +9,7 @@ import ProductGrid from "@/components/ProductGrid";
 import Footer from "@/components/Footer";
 import MoreWaysToSave from "@/components/MoreWaysToSave";
 import ScrollToTop from "@/components/ScrollToTop";
+import MusicNote from "@/components/MusicNote";
 import { instrumentsData } from "@/data/instruments";
 
 export interface Instrument {
@@ -22,6 +23,7 @@ export interface Instrument {
   category: string;
   description: string;
   available: boolean;
+  stock?: number;
   relatedCategories?: string[];
   handedness?: 'left' | 'right' | 'both';
   series?: string;
@@ -62,7 +64,7 @@ const Index = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 scroll-smooth">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 scroll-smooth relative">
       <Header />
       <Hero />
       <div className="container mx-auto px-4 py-8">
@@ -86,6 +88,7 @@ const Index = () => {
       </div>
       <Footer />
       <ScrollToTop />
+      <MusicNote />
     </div>
   );
 };
