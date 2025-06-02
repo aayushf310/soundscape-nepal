@@ -1,5 +1,5 @@
 
-import { Search, ShoppingCart, User, Music, ChevronDown } from "lucide-react";
+import { Search, ShoppingCart, User, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -35,9 +35,13 @@ const Header = () => {
     <header className="bg-white/10 backdrop-blur-md border-b border-white/20 sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <Music className="h-8 w-8 text-orange-400" />
-            <h1 className="text-2xl font-bold text-white">
+          <div className="flex items-center space-x-3">
+            <img 
+              src="/lovable-uploads/02ae75b6-0417-4393-bce6-d81e04fa9971.png" 
+              alt="Soundscape Nepal Logo" 
+              className="h-12 w-12"
+            />
+            <h1 className="text-2xl font-bold text-white font-soundscape">
               Soundscape <span className="text-orange-400">Nepal</span>
             </h1>
           </div>
@@ -54,12 +58,12 @@ const Header = () => {
           </div>
           
           <nav className="hidden md:flex items-center space-x-8 relative">
-            <a href="#" className="text-white hover:text-orange-400 transition-colors">Home</a>
+            <a href="#" className="text-white hover:text-orange-400 transition-colors font-soundscape">Home</a>
             
             <div className="flex space-x-8 relative">
               {navItems.map((category, index) => (
                 <div key={category.title} className="relative group">
-                  <button className="text-white hover:text-orange-400 transition-colors flex items-center space-x-1">
+                  <button className="text-white hover:text-orange-400 transition-colors flex items-center space-x-1 font-soundscape">
                     <span>{category.title}</span>
                     <ChevronDown className="h-4 w-4 group-hover:rotate-180 transition-transform duration-300" />
                   </button>
@@ -69,7 +73,7 @@ const Header = () => {
                         <a
                           key={item}
                           href="#"
-                          className="block px-3 py-2 text-gray-800 hover:bg-gradient-to-r hover:from-orange-100 hover:to-pink-100 hover:text-orange-600 cursor-pointer transition-all duration-300 rounded-md"
+                          className="block px-3 py-2 text-gray-800 hover:bg-gradient-to-r hover:from-orange-100 hover:to-pink-100 hover:text-orange-600 cursor-pointer transition-all duration-300 rounded-md font-soundscape"
                         >
                           {item}
                         </a>

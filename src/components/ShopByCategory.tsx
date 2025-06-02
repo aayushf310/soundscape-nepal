@@ -32,10 +32,10 @@ const ShopByCategory = () => {
     <section className="py-20 px-4">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-white mb-4">
+          <h2 className="text-4xl font-bold text-white mb-4 font-soundscape">
             Shop by Category
           </h2>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto font-soundscape">
             Discover the perfect instrument for your musical journey
           </p>
         </div>
@@ -44,7 +44,7 @@ const ShopByCategory = () => {
           {categories.map((category) => {
             const IconComponent = category.icon;
             return (
-              <Card key={category.title} className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-300 group cursor-pointer overflow-hidden transform hover:scale-105 shadow-2xl">
+              <Card key={category.title} className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-300 group cursor-pointer overflow-hidden transform hover:scale-105 shadow-2xl h-[420px]">
                 <div className="relative h-64 overflow-hidden">
                   <img
                     src={category.image}
@@ -56,17 +56,17 @@ const ShopByCategory = () => {
                     <IconComponent className="h-6 w-6 text-white" />
                   </div>
                 </div>
-                <CardContent className="p-6 flex flex-col justify-between h-48">
+                <CardContent className="p-6 flex flex-col justify-between h-[156px]">
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-2">
+                    <h3 className="text-xl font-bold text-white mb-2 font-soundscape">
                       {category.title}
                     </h3>
-                    <p className="text-gray-300 mb-4 text-sm">
+                    <p className="text-gray-300 mb-4 text-sm font-soundscape">
                       {category.description}
                     </p>
                   </div>
                   <Button 
-                    className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white border-none rounded-lg font-semibold py-2"
+                    className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white border-none rounded-lg font-semibold py-2 font-soundscape"
                   >
                     Browse Collection
                   </Button>
